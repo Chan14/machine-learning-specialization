@@ -124,31 +124,36 @@ In each week, the course's own material comes first. **My practice** (re-impleme
 
 In progress.
 
-- Week 1 : Unsupervised learning
-  - [My scratch work](course3_unsupervised_learning_recommenders_rl/scratch)
-    - [Creating bad k-means local minima](course3_unsupervised_learning_recommenders_rl/scratch/creating_kmeans_bad_local_minima.ipynb)
-    - [k-means++ initialization](course3_unsupervised_learning_recommenders_rl/scratch/kmeans_plus_plus_scratchwork.ipynb)
-    - [Feature scaling and k-means](course3_unsupervised_learning_recommenders_rl/scratch/feature_scaling_kmeans.ipynb)
-    - [Kruskal's MST, union-find, and HDBSCAN](course3_unsupervised_learning_recommenders_rl/scratch/kruskal_mst_union_find_and_hdbscan.ipynb)
-    - [NumPy views vs copies](course3_unsupervised_learning_recommenders_rl/scratch/numpy_views_vs_copies.ipynb)
-- [Covariance ellipses (side study)](course3_unsupervised_learning_recommenders_rl/covariance_ellipses)
-  - [Data generation](course3_unsupervised_learning_recommenders_rl/covariance_ellipses/01_data_generation.ipynb)
-  - [Covariance eigen-ellipse](course3_unsupervised_learning_recommenders_rl/covariance_ellipses/02_cov_eigen_ellipse.ipynb)
-  - [Multi-cluster ellipses](course3_unsupervised_learning_recommenders_rl/covariance_ellipses/03_multi_cluster.ipynb)
+- [Week 1 : Unsupervised learning](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning)
+  - [Clustering](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering)
+    - [Practice quiz: Clustering](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering/practice_quizzes/p1_clustering)
+    - [My notes](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering/notes)
+      - [k-means rolling summary, Parts 1–2: the algorithm and the cost function](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering/notes/kmeans_rolling_summary_1.md)
+      - [k-means rolling summary, Parts 3–4: starting centroids and choosing K](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering/notes/kmeans_rolling_summary_2.md)
+    - [My code](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering/my_code)
+      - [Covariance ellipses](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering/my_code/covariance_ellipses): [Data generation](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering/my_code/covariance_ellipses/01_data_generation.ipynb) · [Covariance eigen-ellipse](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering/my_code/covariance_ellipses/02_cov_eigen_ellipse.ipynb) · [Multi-cluster ellipses](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering/my_code/covariance_ellipses/03_multi_cluster.ipynb)
+      - [Scratch work](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering/my_code/scratch)
+        - [Creating bad k-means local minima](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering/my_code/scratch/creating_kmeans_bad_local_minima.ipynb)
+        - [k-means++ initialization](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering/my_code/scratch/kmeans_plus_plus_scratchwork.ipynb)
+        - [Feature scaling and k-means](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering/my_code/scratch/feature_scaling_kmeans.ipynb)
+        - [Kruskal's MST, union-find, and HDBSCAN](course3_unsupervised_learning_recommenders_rl/w1_unsupervised_learning/clustering/my_code/scratch/kruskal_mst_union_find_and_hdbscan.ipynb)
+  - Anomaly detection (coming next)
+- [Course 3 scratch](course3_unsupervised_learning_recommenders_rl/scratch)
+  - [NumPy views vs copies](course3_unsupervised_learning_recommenders_rl/scratch/numpy_views_vs_copies.ipynb)
 
 ## Beyond the courses
 
 ### Reusable package: `mlspec`
 
-| Module | What it does | Tests |
-| ------ | ------------ | ----- |
+| Module                                                                        | What it does                                                                                 | Tests                                                                                                  |
+| ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | [linear_regression/univariate.py](src/mlspec/linear_regression/univariate.py) | Cost, gradients, and gradient descent with tolerance-based and patience-based early stopping | [test_univariate.py](tests/linear_regression/test_univariate.py), including a numerical gradient check |
-| [viz/matrix_transform_viewer.py](src/mlspec/viz/matrix_transform_viewer.py) | Interactive view of how a 2×2 matrix transforms the plane | [test_matrix_transform_viewer.py](tests/viz/test_matrix_transform_viewer.py) |
-| [stats/ellipses.py](src/mlspec/stats/ellipses.py) | Covariance ellipse helpers (in progress) | to come |
+| [viz/matrix_transform_viewer.py](src/mlspec/viz/matrix_transform_viewer.py)   | Interactive view of how a 2×2 matrix transforms the plane                                    | [test_matrix_transform_viewer.py](tests/viz/test_matrix_transform_viewer.py)                           |
+| [stats/ellipses.py](src/mlspec/stats/ellipses.py)                             | Covariance ellipse helpers (in progress)                                                     | to come                                                                                                |
 
 ### Books
 
-- *Understanding Deep Learning* (Prince)
+- _Understanding Deep Learning_ (Prince)
   - [Chapter 1: Background mathematics](books/understanding_deep_learning/ch01/1_1_background_mathematics.ipynb)
 
 ### Scratch
@@ -178,14 +183,15 @@ ml-specialization-playground/
 
 **Inside each week, the same folder names mean the same thing:**
 
-| Folder | What's in it |
-| ------ | ------------ |
-| `optional_labs/` | Course-provided labs (solutions), with their `lab_utils*.py`, images, and data |
-| `labs_practice/` | My own re-implementations of those labs |
-| `programming_assignments/aN_<name>/` | Graded assignments, each with its own utilities and tests |
-| `practice_quizzes/pN_<topic>/` | Screenshots of practice quizzes |
-| `my_code/` | My own scripts and mini-projects for that week |
-| `archive*/` | Older versions kept for reference |
+| Folder                               | What's in it                                                                   |
+| ------------------------------------ | ------------------------------------------------------------------------------ |
+| `optional_labs/`                     | Course-provided labs (solutions), with their `lab_utils*.py`, images, and data |
+| `labs_practice/`                     | My own re-implementations of those labs                                        |
+| `programming_assignments/aN_<name>/` | Graded assignments, each with its own utilities and tests                      |
+| `practice_quizzes/pN_<topic>/`       | Screenshots of practice quizzes                                                |
+| `my_code/`                           | My own scripts and mini-projects for that week                                 |
+| `notes/`                             | My rolling summaries of the topic, in Markdown with math                       |
+| `archive*/`                          | Older versions kept for reference                                              |
 
 **Rules that keep this layout sound**
 
@@ -230,12 +236,13 @@ ruff check src tests                           # lint my package
 
 ### Where new work goes
 
-| You are writing...                            | Put it in                                  |
-| --------------------------------------------- | ------------------------------------------ |
-| Course lab files (downloaded)                 | `courseN_.../wN_.../optional_labs/`        |
-| Your re-implementation of a lab               | `courseN_.../wN_.../labs_practice/`        |
-| Your own script or mini-project for a week    | `courseN_.../wN_.../my_code/`              |
-| A function you'll reuse across notebooks      | `src/mlspec/...` + `tests/...`             |
-| Rough work for a specific course              | `courseN_.../scratch/`                     |
-| Rough work not tied to a course               | `scratch/`                                 |
-| Anything that must never reach GitHub         | any `untracked/` folder                    |
+| Content type...                           | Where it goes                         |
+| ----------------------------------------- | ------------------------------------- |
+| Course lab files (downloaded)             | `courseN_.../wN_.../optional_labs/`   |
+| My re-implementation of a lab             | `courseN_.../wN_.../labs_practice/`   |
+| My own script or mini-project for a week  | `courseN_.../wN_.../my_code/`         |
+| A function I'll reuse across notebooks    | `src/mlspec/...` + `tests/...`        |
+| Rough work for a specific course          | `courseN_.../scratch/`                |
+| Rough work not tied to a course           | `scratch/`                            |
+| Anything that must never reach GitHub     | any `untracked/` folder               |
+| My notes or rolling summaries for a topic | `courseN_.../wN_.../<section>/notes/` |
