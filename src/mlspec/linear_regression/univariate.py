@@ -1,17 +1,29 @@
+"""Univariate linear regression, y_hat = w * x + b, trained by gradient descent.
+
+Convention (course 1): the cost is half the mean squared error,
+
+    J(w, b) = (1 / (2m)) * sum_i (w * x_i + b - y_i) ** 2
+
+The 1/2 cancels the 2 from differentiating the square, so
+    dJ/dw = (1/m) * sum_i e_i * x_i,   dJ/db = (1/m) * sum_i e_i,
+where e_i = w * x_i + b - y_i. compute_loss and compute_gradients must use the
+SAME J: the gradient is only correct for the loss it is the derivative of.
+"""
+
 import numpy as np
 
 
 def compute_loss(X, Y, w, b):
     """
-    Compute the Mean Squared Error (MSE) for univariate linear regression.
+    Compute J(w, b) = (1 / (2m)) * sum (w*x + b - y)^2  (half the MSE).
     """
     Y_pred = w * X + b
-    return np.mean((Y_pred - Y) ** 2)
+    return np.mean((Y_pred - Y) ** 2) / 2
 
 
 def compute_gradients(X, Y, w, b):
     """
-    Compute gradients of MSE with respect to weight and bias.
+    Compute (dJ/dw, dJ/db) for J = half the MSE (see module docstring).
 
     Returns:
         (dw, db): Tuple of gradients.
@@ -41,7 +53,8 @@ def gradient_descent_with_loss_gradient_tol(
     Gradient descent with early stopping based on loss change or gradient norm.
 
     Returns:
-        w, b, loss_history: Final weight, bias, and list of losses.
+        (loss_history, grad_norm_history, w_history, b_history): one entry per
+        iteration; the final w and b are w_history[-1] and b_history[-1].
     """
     assert X.shape == Y.shape, "X and Y must be the same shape"
     w, b = w_init, b_init
@@ -90,7 +103,8 @@ def gradient_descent_with_loss_gradient_tol(
             break
 
         prev_loss = loss
-    print(f"Final w : {w}, Final b : {b}, loss : {loss}, grad_norm : {grad_norm}")
+    if verbose:
+        print(f"Final w : {w}, Final b : {b}, loss : {loss}, grad_norm : {grad_norm}")
 
     return (loss_history, grad_norm_history, w_history, b_history)
 
@@ -163,5 +177,6 @@ def gradient_descent_patience_based(
                     f"Early stopping at iter {i} — no val_loss improvement for {val_patience} steps."
                 )
             break
-    print(f"Final w : {w}, Final b : {b}, loss : {loss}")
+    if verbose:
+        print(f"Final w : {w}, Final b : {b}, loss : {loss}")
     return w, b, loss_history

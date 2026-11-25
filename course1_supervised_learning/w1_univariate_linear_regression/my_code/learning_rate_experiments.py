@@ -1,12 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from _1_plotters_for_visualizations import (
+from plotters import (
     plot_loss_curves_for_lrs,
     plot_loss_curves_for_lrs_with_subplot,
     plot_model_fit,
     plot_training_progress,
 )
-from _1_univariate_linear_regression import gradient_descent_with_loss_gradient_tol
+from mlspec.linear_regression.univariate import gradient_descent_with_loss_gradient_tol
 
 # Generate synthetic data
 np.random.seed(42)
