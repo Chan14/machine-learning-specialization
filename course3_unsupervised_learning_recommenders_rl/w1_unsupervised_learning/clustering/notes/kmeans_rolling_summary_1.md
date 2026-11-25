@@ -69,7 +69,7 @@ The typical local minimum pattern: two centroids share one true group, while one
 $$J = \sum_{k=1}^{K} \frac{|C_k|}{m}\,\text{Var}_k$$
 Each cluster's variance is weighted by the fraction of points it holds, and the weights add up to 1. So k-means makes clusters as tight as possible, with bigger clusters counting more toward $J$.
 
-The same total variance is the trace of the cluster's covariance matrix $\Sigma_k$. The diagonal of $\Sigma_k$ holds each feature's variance, and the trace adds those up, so $\text{Var}_k = \operatorname{tr}(\Sigma_k)$. k-means only ever sees this trace. The off-diagonal entries of $\Sigma_k$, which describe how a cluster is tilted or stretched, do not affect $J$.
+The same total variance is the trace of the cluster's covariance matrix $\Sigma_k$. The diagonal of $\Sigma_k$ holds each feature's variance, and the trace adds those up, so $\text{Var}_k = \mathrm{tr}(\Sigma_k)$. k-means only ever sees this trace. The off-diagonal entries of $\Sigma_k$, which describe how a cluster is tilted or stretched, do not affect $J$.
 
 Implementation detail: use the divide-by-$n$ versions when calculating variances. `np.var` divides by $n$ by default, while `torch.var` needs `correction=0` (default is correction=1). For covariance matrices, both `np.cov` and `torch.cov` divide by $n-1$ by default, so use `np.cov(..., bias=True)` or `torch.cov(..., correction=0)`.
 
