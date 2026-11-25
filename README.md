@@ -66,6 +66,7 @@ is heavily used here, so this repo stays on 3.12.
 One time, from the repo root:
 
 ```bash
+brew install graphviz              # system tool `dot`, used by the decision tree plots
 pyenv activate ml-spec-env
 pip install -e ".[dev]"            # editable install of mlspec + dev tools
 nbstripout --install               # strip notebook outputs on commit; local files keep them
@@ -155,7 +156,7 @@ Certificate: [`certificate/course2_certificate.pdf`](course2_advanced_learning_a
 ### [Week 4: Decision trees](course2_advanced_learning_algorithms/w4_decision_trees/)
 
 - **Optional labs:** decision trees, tree ensembles (my versions: `lab1.ipynb`, `lab2.ipynb`, `utils_practice.py`)
-- **Programming assignment:** [`a1_decision_trees/`](course2_advanced_learning_algorithms/w4_decision_trees/programming_assignments/a1_decision_trees/), with my redo in `lab1.ipynb`
+- **Programming assignment:** [`a1_decision_trees/`](course2_advanced_learning_algorithms/w4_decision_trees/programming_assignments/a1_decision_trees/), with my redo in `lab1.ipynb` using my own `utils_practice.py`
 - **Practice quizzes:** decision trees, training, tree ensembles
 
 ## Course 3: Unsupervised Learning, Recommenders, Reinforcement Learning
@@ -163,7 +164,12 @@ Certificate: [`certificate/course2_certificate.pdf`](course2_advanced_learning_a
 In progress.
 
 - [`covariance_ellipses/`](course3_unsupervised_learning_recommenders_rl/covariance_ellipses/): data generation, covariance eigen-ellipses, multi-cluster ellipses. The helpers go in [`mlspec.stats.ellipses`](src/mlspec/stats/ellipses.py).
-- [`scratch/numpy_views_vs_copies.ipynb`](course3_unsupervised_learning_recommenders_rl/scratch/numpy_views_vs_copies.ipynb): when NumPy indexing returns a view vs a copy
+- [`scratch/`](course3_unsupervised_learning_recommenders_rl/scratch/):
+  - `creating_kmeans_bad_local_minima.ipynb`: building data where k-means gets stuck in a bad local minimum
+  - `kmeans_plus_plus_scratchwork.ipynb`: k-means++ initialization
+  - `feature_scaling_kmeans.ipynb`: how feature scaling changes k-means clusters
+  - `kruskal_mst_union_find_and_hdbscan.ipynb`: Kruskal's MST with rank-based union-find, toward HDBSCAN
+  - `numpy_views_vs_copies.ipynb`: when NumPy indexing returns a view vs a copy
 
 ## Reusable package: `mlspec`
 

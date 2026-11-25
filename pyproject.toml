@@ -20,6 +20,7 @@ dependencies = [
     "tensorflow>=2.18",
     "xgboost>=2.0",
     "networkx>=3.3",
+    "pydot>=3.0",          # networkx graphviz_layout; also needs Graphviz `dot` (brew install graphviz)
     "sympy>=1.13",
     "seaborn>=0.13",
     "pillow>=10.0",
