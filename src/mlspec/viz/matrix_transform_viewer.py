@@ -9,7 +9,7 @@ Displays how a 2x2 matrix transforms the plane:
 
 Usage
 -----
-    from shared_utils.matrix_transform_viewer import visualize_transformation
+    from mlspec.viz.matrix_transform_viewer import visualize_transformation
     import numpy as np
 
     M = np.array([[2, 1],
@@ -17,12 +17,11 @@ Usage
     visualize_transformation(M, show_old_grid=True)
 """
 
-import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyArrowPatch
+import numpy as np
 from matplotlib.lines import Line2D
+from matplotlib.patches import FancyArrowPatch
 from matplotlib.widgets import TextBox
-
 
 # ---------------------------------------------------------------------------
 # Helpers

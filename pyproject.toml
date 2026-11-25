@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlspec"
+version = "0.1.0"
+description = "Chan's Machine Learning Specialization work: labs, practice, and reusable code."
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "Chan" }]
+# What the code in this repo imports (src/, labs, notebooks).
+# requirements.txt is the exact pinned snapshot of the env that runs it all.
+dependencies = [
+    "numpy>=2.0",
+    "pandas>=2.2",
+    "matplotlib>=3.8",
+    "scipy>=1.13",
+    "scikit-learn>=1.5",
+    "tensorflow>=2.18",
+    "xgboost>=2.0",
+    "networkx>=3.3",
+    "sympy>=1.13",
+    "seaborn>=0.13",
+    "pillow>=10.0",
+    "ipywidgets>=8.1",
+    "ipympl>=0.9",
+]
+
+[project.optional-dependencies]
+# pip install -e ".[dev]"
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+    "nbstripout>=0.7",
+    "jupyterlab>=4.0",
+    "ipykernel>=6.29",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# importlib mode: same-named test files in different folders don't collide,
+# and tests must import the installed package (no accidental repo-root imports).
+addopts = ["--import-mode=importlib", "-ra"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+# Course-provided labs and scratch work are kept as-is.
+extend-exclude = [
+    "course1_supervised_learning",
+    "course2_advanced_learning_algorithms",
+    "course3_unsupervised_learning_recommenders_rl",
+    "books",
+    "scratch",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]
