@@ -38,7 +38,7 @@ $J$ is the average squared distance from each point to its own centroid. It's al
 
 **4. The mean is the best spot for a centroid.** For any group of $n$ points $y_1, \dots, y_n$ with mean $\bar y$, and any location $\mu$:
 
-$$\sum_{j=1}^{n} \|y_j - \mu\|^2 = \sum_{j=1}^{n} \|y_j - \bar y\|^2 + n\,\|\bar y - \mu\|^2$$
+$$\sum_{j=1}^{n} \|y_j - \mu\|^2 = \sum_{j=1}^{n} \|y_j - \bar y\|^2 + n\\|\bar y - \mu\|^2$$
 
 The total squared distance from the points to $\mu$ equals their total squared distance to the mean, plus a penalty of $n$ times the squared distance between $\mu$ and the mean. The penalty is zero only at the mean, so the mean gives the smallest total, which is why the update step moves each centroid to its cluster's mean.
 
