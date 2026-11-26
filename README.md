@@ -1,4 +1,4 @@
-# ml-specialization-playground
+# machine-learning-specialization
 
 My work through the [Machine Learning Specialization](https://www.coursera.org/specializations/machine-learning-introduction) (DeepLearning.AI and Stanford Online, taught by Andrew Ng): the course labs, my own re-implementations and experiments, and the reusable code that came out of them.
 
@@ -166,7 +166,7 @@ In progress.
 ### Repository layout
 
 ```
-ml-specialization-playground/
+machine-learning-specialization/
 ├── pyproject.toml          # package metadata, dependencies, pytest and ruff config
 ├── requirements.txt        # exact pinned snapshot of ml-spec-env
 ├── .python-version         # pinned interpreter (3.12)
